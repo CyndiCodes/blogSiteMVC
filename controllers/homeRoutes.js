@@ -2,7 +2,17 @@ const router = require('express').Router();
 const { User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.get('/comments', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const commentData = await Comment.findAll({
@@ -18,7 +28,7 @@ router.get('/', async (req, res) => {
     const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('comments', { 
       comments, 
       logged_in: req.session.logged_in 
     });
@@ -27,8 +37,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// route working, not displaying info
-router.get('/comment/:id', async (req, res) => {
+// route working, not displaying
+router.get('/comments/:id', async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id, {
       include: [
@@ -39,9 +49,10 @@ router.get('/comment/:id', async (req, res) => {
       ],
     });
 
+    
     const comment = commentData.get({ plain: true });
 
-    res.render('comments', {
+    res.render('comments'+id, {
       ...comment,
       logged_in: req.session.logged_in
     });
@@ -68,15 +79,6 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
-  res.render('login');
-});
 
 
 module.exports = router;

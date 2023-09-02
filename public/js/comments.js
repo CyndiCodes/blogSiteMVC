@@ -5,7 +5,7 @@ if(event.target.matches("button")){
     let clickedId = event.target.getAttribute("data-id")
     console.log(clickedId)
 
-    const response = await fetch("/api/comment/"+clickedId, {
+    const response = await fetch("/api/comments/"+clickedId, {
         method: "DELETE", 
     })
     await response.json();
