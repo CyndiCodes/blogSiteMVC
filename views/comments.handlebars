@@ -6,8 +6,9 @@
 
 <div id="comments">
 {{#each comments as | comment| }}
-   <p>{{this.title}}:{{this.comment}} <button data-id="{{id}}">delete</button></p>
+   <p>{{comment.title}}:{{comment.comment}}:{{comment.date_created}} {{user.name}}<button data-id="{{id}}">delete</button></p>
   {{/each}}
+
 </div>
 
 
