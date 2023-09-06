@@ -30,6 +30,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+
 router.get('/comments', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
