@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const comments = commentData.map((project) => comment.get({ plain: true }));
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('login', { 
       comments, 
       logged_in: req.session.logged_in 
     });
