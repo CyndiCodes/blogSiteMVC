@@ -1,13 +1,23 @@
 <div class="row">
   <div class="col-auto">
-    <h2>All Posts</h2>
+    <h1>All Posts</h1>
   </div>
 </div>
 
 
-<div id="comments">
-{{#each comments as | comment| }}
-   <p>{{comment.title}}:{{comment.comment}}:{{comment.date_created}} {{user.name}}<button data-id="{{id}}">delete</button></p>
+<div id="commentBoxes">
+  {{#each comments as | comment| }}
+  <div id = "titleBox">
+   <h3>{{comment.title}}</h3>
+    <p>
+    Posted by {{user.name}} on {{comment.date_created}} 
+    </p>
+  </div>
+  <div id = "descBox">
+  <p> {{comment.comment}} <button data-id="{{id}}">delete</button></p>
+  </div>
+
+
   {{/each}}
 
 </div>
