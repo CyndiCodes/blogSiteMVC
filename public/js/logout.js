@@ -34,6 +34,20 @@ const homeBtn = async () => {
     alert(response.statusText);
   }
 };
+
+const addCommentBtn = async () => {
+  const response = await fetch('/profile', {
+    method: 'GET'
+  });
+
+  if (response.ok) {
+    document.location.replace('/profile');
+  } else {
+    alert(response.statusText);
+  }
+};
+
+document.querySelector('#addComment').addEventListener('click', addCommentBtn);
 document.querySelector('#logout').addEventListener('click', logout);
 document.querySelector('#dashboard').addEventListener('click', dashboardBtn);
 document.querySelector('#home').addEventListener('click', homeBtn);

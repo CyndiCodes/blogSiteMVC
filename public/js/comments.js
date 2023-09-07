@@ -1,9 +1,10 @@
 let comments = document.querySelector("#comments")
+let delBtn = document.querySelector("#delBtn")
 
 comments.addEventListener("click", async function (event){
-if(event.target.matches("button")){
+if(event.target.matches("delBtn")){
     let clickedId = event.target.getAttribute("data-id")
-    console.log(clickedId)
+    console.log(event.target)
 
     const response = await fetch("/api/comments/"+clickedId, {
         method: "DELETE", 
@@ -17,8 +18,5 @@ if(event.target.matches("button")){
     else{
         console.log("error")
     }
-
 }
-
 })
-

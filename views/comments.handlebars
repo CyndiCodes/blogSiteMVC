@@ -14,16 +14,18 @@
     </p>
   </div>
   <div id = "descBox">
-  <p> {{comment.comment}} </p>
+  <p> {{comment.comment}}
+  </p>
+  <div>
   <button id = "delBtn" data-id="{{id}}">delete</button>
+  {{!-- <button id = "edit" data-id="{{id}}">edit</button> --}}
   </div>
-
+  </div>
 
   {{/each}}
 
 </div>
-
-
-
+<button class="btn" id="addComment">add comment</button>
 
 <script src="/js/comments.js"></script>
+
