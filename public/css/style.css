@@ -43,7 +43,12 @@ justify-content:space-between
 #descBox {
   background-color: #D0F0C0 ;
   color: #222021;
-  flex-direction: column;
+  display: flex;
+  justify-content:space-between;
   border: 1px solid #222021;
- margin-bottom: 10px;;
+  margin-bottom: 10px;;
+ }
+
+ #delBtn {
+  height: 30px;
  }
