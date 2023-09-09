@@ -60,4 +60,19 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  const commentData = await Comment.update(
+    {
+      title: req.body.title,
+      comment: req.body.comment
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  );
+
+  return res.json(commentData);
+})
 module.exports = router;

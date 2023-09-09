@@ -34,5 +34,24 @@
   </div>
 </form>
 </div>
+<div id="commentBoxes">
+  {{#each comments as | comment| }}
+  <div id = "titleBox">
+   <h3>{{comment.title}}</h3>
+    <p>
+    Posted by {{user.name}} on {{comment.date_created}} 
+    </p>
+  </div>
+  <div id = "descBox">
+  <p> {{comment.comment}}
+  </p>
+  <div>
+  <button id = "delBtn" data-id="{{id}}">delete</button>
+  {{!-- <button id = "edit" data-id="{{id}}">edit</button> --}}
+  </div>
+  </div>
 
+  {{/each}}
+
+</div>
 <script src="/js/login.js"></script>
