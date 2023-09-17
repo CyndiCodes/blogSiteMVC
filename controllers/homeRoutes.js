@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('login', { 
+    res.render('homepage', { 
       comments, 
       logged_in: req.session.logged_in 
     });
@@ -72,7 +72,7 @@ router.get('/comments', async (req, res) => {
     const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('comments', { 
+    res.render('homepage', { 
       comments, 
       logged_in: req.session.logged_in 
     });

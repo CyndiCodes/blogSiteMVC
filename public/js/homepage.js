@@ -1,6 +1,7 @@
 let comments = document.querySelector("#commentBoxes")
 let delBtn = document.querySelectorAll(".delBtn")
 let editBtn = document.querySelectorAll(".editBtn")
+let loginBtn = document.getElementById("login")
 
 for (let i = 0; i< delBtn.length; i++) {
   
@@ -54,3 +55,8 @@ for (let i = 0; i< editBtn.length; i++) {
     // }
     })
     }
+
+loginBtn.addEventListener('click', function(event) {
+    event.target
+    console.log(event.target)
+    });
